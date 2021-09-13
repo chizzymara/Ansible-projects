@@ -1,0 +1,15 @@
+---
+
+- name: Create partitions
+  parted:
+    device: "{{ device_name }}"
+    number: "{{ item }}"
+    label: gpt
+    flags: [ lvm ]
+    state: present
+    part_start: "{{ (item | int | abs) * 25 }}%"
+    part_end: "{{ (item | int | abs) * 25 + 25 }}%"
+  become: yes
+  loop:
+    - 1
+    - 2

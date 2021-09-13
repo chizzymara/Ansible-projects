@@ -1,0 +1,9 @@
+---
+- name: Create logical volumes
+  lvol:
+    vg: "{{ item.value.vgname }}"
+    lv: "{{ item.value.lvname }}"
+    size: "{{ item.value.size }}"
+    force: yes
+  loop: "{{ lookup('dict', logical_volumes) }}"
+   

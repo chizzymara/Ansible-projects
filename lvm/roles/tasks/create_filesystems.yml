@@ -1,0 +1,7 @@
+---
+
+- name: Create filesystem
+  filesystem:
+    fstype: "{{ item.value.fstype }}"
+    dev: "/dev/{{ item.value.vgname }}/{{ item.value.lvname }}"
+  loop: "{{lookup('dict', logical_volumes) }}"

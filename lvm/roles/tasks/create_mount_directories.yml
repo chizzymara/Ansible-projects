@@ -1,0 +1,17 @@
+---
+
+- name: Create directories to mount on if they does not exist
+  ansible.builtin.file:
+    path: "{{ item.value.dir }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ lookup('dict', logical_volumes) }}"
+  become: yes
+
+- name: Change file ownership group and permissions
+  ansible.builtin.file:
+    path: "{{ item.value.dir }}"
+    owner: root
+    group: root
+  loop: "{{ lookup('dict', logical_volumes) }}"
+  become: yes   

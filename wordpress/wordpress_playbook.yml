@@ -1,0 +1,23 @@
+---
+
+- hosts: aws
+  tasks:
+    - name: Install required packages
+      include: roles/tasks/install_required_packages.yml
+
+    - name: Starting required services
+      include: roles/tasks/start_required_services.yml
+
+    - name: Configure mysql database
+      include: roles/tasks/configure_mysql_database.yml 
+
+    - name: Configure nginx server
+      include: roles/tasks/configure_nginx.yml
+
+    - name: restart nginx
+      include: roles/tasks/restart_nginx.yml
+
+    - name: Install Wordpress
+      include: roles/tasks/install_and_configure_wordpress.yml 
+
+

@@ -1,0 +1,26 @@
+---
+device_name: /dev/xvdb
+vg_name: application
+
+logical_volumes:
+        nginx_logs:
+                vgname: "{{ vg_name }}"
+                lvname: nginx_logs
+                dir: /var/log/nginx
+                fstype: ext4
+                size: 1g
+        database:
+                vgname: "{{ vg_name }}"
+                lvname: database
+                dir: /var/lib/mysql
+                fstype: ext4
+                size: 1g
+        wordpress:
+                vgname: "{{ vg_name  }}"
+                lvname: wordpress_asset
+                dir: /var/wp-content
+                fstype: ext4
+                size: 1g
+
+
+

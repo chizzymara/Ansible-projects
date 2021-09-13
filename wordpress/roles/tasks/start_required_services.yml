@@ -1,0 +1,12 @@
+---
+
+- name: Starting required Services
+  ansible.builtin.service:
+          name: "{{ item }}"
+          state: started
+          enabled: true
+  become: true
+  with_items:
+          - php{{ php_version }}-fpm
+          - mysql
+

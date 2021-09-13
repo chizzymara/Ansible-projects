@@ -1,0 +1,30 @@
+---
+
+- name: Download WordPress
+  get_url:
+    url=https://wordpress.org/latest.tar.gz
+    dest=/tmp/wordpress.tar.gz
+    validate_certs=no
+
+- name: Extract WordPress
+  unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/ copy=no
+  become: yes
+
+
+- name: Copy sample config file
+  command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php creates=/var/www/wordpress/wp-config.php
+  become: yes
+
+- name: Copy wp-config file
+  become: yes
+  template:
+    src: "roles/templates/files/wp-config-sample.php"
+    dest: "/var/www/wordpress/wp-config.php"
+
+- name: Change wordpress dir ownership
+  become: yes
+  file:
+    path: /var/www/wordpress
+    owner: www-data
+    group: www-data
+

@@ -1,0 +1,21 @@
+---
+
+
+- name: Create partitions
+  include: create_partitions.yml
+
+- name: Create volume group
+  include: create_volume_group.yml 
+
+- name: Create logical volumes
+  include: create_logical_volume.yml
+
+- name: Create filesystem
+  include: create_filesystems.yml
+
+- name: Create directories to mount on if they does not exist
+  include: create_mount_directories.yml 
+
+- name: Mount up device by label
+  include: mount_devices.yml
+

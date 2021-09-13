@@ -1,0 +1,10 @@
+---
+- name: Mount up device by label
+  mount:
+    path: "{{ item.value.dir }}"
+    src: "/dev/{{ item.value.vgname }}/{{ item.value.lvname }}"
+    fstype: "{{ item.value.fstype }}"
+    state: mounted
+  loop: "{{ lookup('dict', logical_volumes) }}"
+
+    

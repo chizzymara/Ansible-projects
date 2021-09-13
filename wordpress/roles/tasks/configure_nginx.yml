@@ -1,0 +1,26 @@
+---
+
+- name: sets nginx conf file
+  become: yes
+  template:
+    src: "roles/templates/files/nginx.conf.j2"
+    dest: "/etc/nginx/sites-available/{{ http_conf }}"
+
+- name: enables new site
+  become: yes
+  file:
+    src: "/etc/nginx/sites-available/{{ http_conf }}"
+    dest: "/etc/nginx/sites-enabled/{{ http_conf }}"
+    state: link
+  notify:
+    - restart nginx
+    
+- name: removes "default" site
+  become: yes
+  file:
+    path: "/etc/nginx/sites-enabled/default"
+    state: absent
+  notify: 
+    - restart nginx
+
+  
