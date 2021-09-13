@@ -48,8 +48,8 @@ logical_volumes:
 
 ### 1. Clone the repository
 ```sh
-$ git clone https://github.com/chizzymara/ansible-projects.git
-$ cd ansible_projects
+$ git clone https://github.com/chizzymara/ansible-lvm.git
+$ cd ansible_lvm
 ```
 ### 2. Prepare an inventory file for ansible
 Edit the hosts file **~/lvm/hosts** and include the group(s) and address(es) of hosts on which wordpress is to be installed. It is important to ensure ansible is able to interact or  connect to the hosts.  
