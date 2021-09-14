@@ -112,5 +112,5 @@ xvdb                            202:16   0    8G  0 disk
 └─xvdb2                         202:18   0    2G  0 part 
   ├─application-database        253:1    0    1G  0 lvm  /var/lib/mysql
   └─application-wordpress_asset 253:2    0    1G  0 lvm  /var/wp-content
-ubuntu@ip-172-31-94-191:~$ 
+
 ```
