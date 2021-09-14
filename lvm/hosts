@@ -11,11 +11,9 @@
 #10.100.198.201  ansible_user=vagrant   ansible_connection=ssh  ansible_private_key_file=~/.ssh/id_rsa
 
 [aws]
-#54.93.248.177  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/text.pem
-#54.161.238.191  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/lab1key.pem
-#52.207.100.48    ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/lab1key.pem
-54.145.167.105  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/lab1key.pem
-#34.239.106.119  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/handsonlab_keypair.pem
+3.**.*1.** ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/handsonlab_keypair.pem
+54.**.248.**  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/text.pem
+54.2*5.***.225  ansible_user=ubuntu  ansible_ssh_private_key_file=/home/vagrant/lab1key.pem
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
 #green.example.com
